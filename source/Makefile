@@ -23,7 +23,7 @@ OBJ_host := $(patsubst %.o,$(OBJDIR)/%.o,$(SOBJ_host))
 OBJ_gem5 := $(patsubst %.o,$(OBJDIR)/%.o,$(SOBJ_gem5))
 
 
-compile_all: hotspot_host hotspot_original_gem5 hotspot_optimized_gem5 hotspot_neon hotspot_neon_u1 hotspot_neon_u2 hotspot_neon_u3 hotspot_sve
+compile_all: hotspot_host hotspot_original_gem5 hotspot_optimized_gem5 hotspot_neon hotspot_neon_u1 hotspot_neon_u2 hotspot_neon_u4 hotspot_sve
 
 compile_host: hotspot_host
 
