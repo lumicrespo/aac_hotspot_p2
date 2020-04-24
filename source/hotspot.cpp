@@ -97,7 +97,7 @@ void single_iteration(float *result, float *temp, float *power, int row, int col
 	    for ( r = BLOCK_SIZE_R; r < row - BLOCK_SIZE_R ; ++r ) {
 	    	kernel(result, temp, power, (size_t)BLOCK_SIZE_C, (size_t)(col-BLOCK_SIZE_C), (size_t)col, (size_t)r, Cap_1, Rx_1, Ry_1, Rz_1, amb_temp);
 	    }
-		M5resetdumpstats();
+		M5dumpstats();
 	    double end_time_loop = get_time();
         total_time_loop +=(end_time_loop - start_time_loop);
 	    
