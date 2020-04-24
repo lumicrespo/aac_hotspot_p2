@@ -4,6 +4,7 @@
 #include <sys/time.h>
 #include "time.h"
 #include "kernel.h"
+#include "m5ops.h"
 
 // Returns the current system time 
 double get_time(){
