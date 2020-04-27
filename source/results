@@ -43,6 +43,22 @@ system.cpu.branchPred.lookups                 5850767                       # Nu
 system.cpu.branchPred.usedRAS                  483300                       # Number of times the RAS was used to get a target.
 system.cpu.branchPredindirectMispredicted          190                       # Number of mispredicted indirect branches.
 
+
+bits:1,BTB:32768;resetdump
+system.cpu.branchPred.BTBCorrect                    0                       # Number of correct BTB predictions (this stat may not work properly.
+system.cpu.branchPred.BTBHitPct             79.214076                       # BTB Hit Percentage
+system.cpu.branchPred.BTBHits                 2705815                       # Number of BTB hits
+system.cpu.branchPred.BTBLookups              3415826                       # Number of BTB lookups
+system.cpu.branchPred.RASInCorrect                  0                       # Number of incorrect RAS predictions.
+system.cpu.branchPred.condIncorrect            302164                       # Number of conditional branches incorrect
+system.cpu.branchPred.condPredicted           4297675                       # Number of conditional branches predicted
+system.cpu.branchPred.indirectHits              81944                       # Number of indirect target hits.
+system.cpu.branchPred.indirectLookups           82190                       # Number of indirect predictor lookups.
+system.cpu.branchPred.indirectMisses              246                       # Number of indirect misses.
+system.cpu.branchPred.lookups                 5850767                       # Number of BP lookups
+system.cpu.branchPred.usedRAS                  483300                       # Number of times the RAS was used to get a target.
+system.cpu.branchPredindirectMispredicted          190                       # Number of mispredicted indirect branches.
+
 bits:1,BTB:32768;2iter
 system.cpu.branchPred.BTBCorrect                    0                       # Number of correct BTB predictions (this stat may not work properly.
 system.cpu.branchPred.BTBHitPct             79.226443                       # BTB Hit Percentage
