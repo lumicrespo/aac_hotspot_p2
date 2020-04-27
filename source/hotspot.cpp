@@ -140,6 +140,7 @@ void single_iteration(float *result, float *temp, float *power, int row, int col
 
     #elif defined(ORIGINAL)
         //original code
+        printf("ORIGINAL\n\n");
         for ( chunk = 0; chunk < num_chunk; ++chunk )
 	    {
             int r_start = BLOCK_SIZE_R*(chunk/chunks_in_col);
