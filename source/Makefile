@@ -157,7 +157,7 @@ $(OBJDIR)/$(SOBJ_host) : hotspot.cpp
 	$(HOST_CC) $(HOST_CC_FLAGS) -c $< -o $@
 	
 $(OBJDIR)/$(SOBJ_gem5) : hotspot.cpp
-	$(GEM5_CC) $(GEM5_CC_FLAGS) -fno-tree-vectorize -c $< -o $@
+	$(GEM5_CC) $(GEM5_CC_FLAGS_0) -fno-tree-vectorize -c $< -o $@
 
 clean :
 
