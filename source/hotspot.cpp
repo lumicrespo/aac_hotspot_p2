@@ -97,6 +97,8 @@ void single_iteration(float *result, float *temp, float *power, int row, int col
 	    double start_time_loop = get_time();
 		//M5resetstats();
         
+        printf("NEON\n\n");
+
         asm volatile( 
         "reset_stats:\n\t" 
         "mov x0, #0; mov x1, #0; .inst 0XFF000110 | (0x40 << 16);" :: 
