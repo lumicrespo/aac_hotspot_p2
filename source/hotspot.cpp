@@ -95,23 +95,12 @@ void single_iteration(float *result, float *temp, float *power, int row, int col
 		//M5resetdumpstats();
 	    
 	    double start_time_loop = get_time();
-		//M5resetstats();
-        
-        printf("NEON\n\n");
-
-        asm volatile( 
-        "reset_stats:\n\t" 
-        "mov x0, #0; mov x1, #0; .inst 0XFF000110 | (0x40 << 16);" :: 
-        : "x0", "x1");
+		M5resetstats();
 
 	    for ( r = BLOCK_SIZE_R; r < row - BLOCK_SIZE_R ; ++r ) {
 	    	kernel(result, temp, power, (size_t)BLOCK_SIZE_C, (size_t)(col-BLOCK_SIZE_C), (size_t)col, (size_t)r, Cap_1, Rx_1, Ry_1, Rz_1, amb_temp);
 	    }
-		//M5resetdumpstats();
-        asm volatile( 
-        "dump_stats:\n\t" 
-        "mov x0, #0; mov x1, #0; .inst 0XFF000110 | (0x41 << 16);" :: 
-        : "x0", "x1");
+		M5resetdumpstats();
 
 	    double end_time_loop = get_time();
         total_time_loop +=(end_time_loop - start_time_loop);
