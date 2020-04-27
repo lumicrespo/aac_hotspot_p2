@@ -1,0 +1,61 @@
+bits:1,BTB:1
+system.cpu.branchPred.BTBCorrect                    0                       # Number of correct BTB predictions (this stat may not work properly.
+system.cpu.branchPred.BTBHitPct              3.769529                       # BTB Hit Percentage
+system.cpu.branchPred.BTBHits                  301197                       # Number of BTB hits
+system.cpu.branchPred.BTBLookups              7990308                       # Number of BTB lookups
+system.cpu.branchPred.RASInCorrect                  0                       # Number of incorrect RAS predictions.
+system.cpu.branchPred.condIncorrect           2373821                       # Number of conditional branches incorrect
+system.cpu.branchPred.condPredicted           8848276                       # Number of conditional branches predicted
+system.cpu.branchPred.indirectHits              81926                       # Number of indirect target hits.
+system.cpu.branchPred.indirectLookups          123161                       # Number of indirect predictor lookups.
+system.cpu.branchPred.indirectMisses            41235                       # Number of indirect misses.
+system.cpu.branchPred.lookups                12708386                       # Number of BP lookups
+system.cpu.branchPred.usedRAS                  830211                       # Number of times the RAS was used to get a target.
+system.cpu.branchPredindirectMispredicted          187                       # Number of mispredicted indirect branches.
+
+bits:1,BTB:131072
+system.cpu.branchPred.BTBCorrect                    0                       # Number of correct BTB predictions (this stat may not work properly.
+system.cpu.branchPred.BTBHitPct             81.018816                       # BTB Hit Percentage
+system.cpu.branchPred.BTBHits                 2714230                       # Number of BTB hits
+system.cpu.branchPred.BTBLookups              3350123                       # Number of BTB lookups
+system.cpu.branchPred.RASInCorrect                  0                       # Number of incorrect RAS predictions.
+system.cpu.branchPred.condIncorrect            277728                       # Number of conditional branches incorrect
+system.cpu.branchPred.condPredicted           4220242                       # Number of conditional branches predicted
+system.cpu.branchPred.indirectHits              81944                       # Number of indirect target hits.
+system.cpu.branchPred.indirectLookups           82189                       # Number of indirect predictor lookups.
+system.cpu.branchPred.indirectMisses              245                       # Number of indirect misses.
+system.cpu.branchPred.lookups                 5769267                       # Number of BP lookups
+system.cpu.branchPred.usedRAS                  483301                       # Number of times the RAS was used to get a target.
+system.cpu.branchPredindirectMispredicted          190                       # Number of mispredicted indirect branches.
+
+bits:1,BTB:32768
+system.cpu.branchPred.BTBCorrect                    0                       # Number of correct BTB predictions (this stat may not work properly.
+system.cpu.branchPred.BTBHitPct             79.214076                       # BTB Hit Percentage
+system.cpu.branchPred.BTBHits                 2705815                       # Number of BTB hits
+system.cpu.branchPred.BTBLookups              3415826                       # Number of BTB lookups
+system.cpu.branchPred.RASInCorrect                  0                       # Number of incorrect RAS predictions.
+system.cpu.branchPred.condIncorrect            302164                       # Number of conditional branches incorrect
+system.cpu.branchPred.condPredicted           4297675                       # Number of conditional branches predicted
+system.cpu.branchPred.indirectHits              81944                       # Number of indirect target hits.
+system.cpu.branchPred.indirectLookups           82190                       # Number of indirect predictor lookups.
+system.cpu.branchPred.indirectMisses              246                       # Number of indirect misses.
+system.cpu.branchPred.lookups                 5850767                       # Number of BP lookups
+system.cpu.branchPred.usedRAS                  483300                       # Number of times the RAS was used to get a target.
+system.cpu.branchPredindirectMispredicted          190                       # Number of mispredicted indirect branches.
+
+bits:1,BTB:32768;2iter
+system.cpu.branchPred.BTBCorrect                    0                       # Number of correct BTB predictions (this stat may not work properly.
+system.cpu.branchPred.BTBHitPct             79.226443                       # BTB Hit Percentage
+system.cpu.branchPred.BTBHits                 2708455                       # Number of BTB hits
+system.cpu.branchPred.BTBLookups              3418625                       # Number of BTB lookups
+system.cpu.branchPred.RASInCorrect                  0                       # Number of incorrect RAS predictions.
+system.cpu.branchPred.condIncorrect            302682                       # Number of conditional branches incorrect
+system.cpu.branchPred.condPredicted           4301228                       # Number of conditional branches predicted
+system.cpu.branchPred.indirectHits              81981                       # Number of indirect target hits.
+system.cpu.branchPred.indirectLookups           82227                       # Number of indirect predictor lookups.
+system.cpu.branchPred.indirectMisses              246                       # Number of indirect misses.
+system.cpu.branchPred.lookups                 5855145                       # Number of BP lookups
+system.cpu.branchPred.usedRAS                  483779                       # Number of times the RAS was used to get a target.
+system.cpu.branchPredindirectMispredicted          220                       # Number of mispredicted indirect branches.
+
+
