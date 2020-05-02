@@ -98,7 +98,7 @@ void single_iteration(float *result, float *temp, float *power, int row, int col
 		M5resetstats();
 
 	   
-	    kernel(result, temp, power, (size_t)BLOCK_SIZE_C, (size_t)(col-BLOCK_SIZE_C), (size_t)col, (size_t)BLOCK_SIZE_R, Cap_1, Rx_1, Ry_1, Rz_1, amb_temp, (size_t)row);
+	    kernel_loop(result, temp, power, (size_t)BLOCK_SIZE_C, (size_t)(col-BLOCK_SIZE_C), (size_t)col, (size_t)BLOCK_SIZE_R, Cap_1, Rx_1, Ry_1, Rz_1, amb_temp, (size_t)row);
 	    
 		M5resetdumpstats();
 
