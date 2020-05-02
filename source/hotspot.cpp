@@ -69,7 +69,7 @@ void single_iteration(float *result, float *temp, float *power, int row, int col
 	float *delta = (float *) calloc (1, sizeof(float));
     
     #if defined(NEON) || defined(SVE)
-		M5resetstats();
+		//M5resetstats();
 	    for ( chunk = 0; chunk < num_chunk; ++chunk )
 	    {
             int r_start = BLOCK_SIZE_R*(chunk/chunks_in_col);
@@ -92,15 +92,15 @@ void single_iteration(float *result, float *temp, float *power, int row, int col
 	    		continue;
 	    	}
         }
-		M5resetdumpstats();
+		//M5resetdumpstats();
 	    
 	    double start_time_loop = get_time();
-		//M5resetstats();
+		M5resetstats();
 
-	    for ( r = BLOCK_SIZE_R; r < row - BLOCK_SIZE_R ; ++r ) {
-	    	kernel(result, temp, power, (size_t)BLOCK_SIZE_C, (size_t)(col-BLOCK_SIZE_C), (size_t)col, (size_t)r, Cap_1, Rx_1, Ry_1, Rz_1, amb_temp);
-	    }
-		//M5resetdumpstats();
+	   
+	    kernel(result, temp, power, (size_t)BLOCK_SIZE_C, (size_t)(col-BLOCK_SIZE_C), (size_t)col, (size_t)BLOCK_SIZE_R, Cap_1, Rx_1, Ry_1, Rz_1, amb_temp);
+	    
+		M5resetdumpstats();
 
 	    double end_time_loop = get_time();
         total_time_loop +=(end_time_loop - start_time_loop);

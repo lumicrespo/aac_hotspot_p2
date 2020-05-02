@@ -3,9 +3,11 @@
 #include <cstdio>
 #include <stdlib.h>
 #if defined(NEON) || defined (SVE)
-void kernel(float *result, float *temp, float *power, size_t c_start, size_t size, size_t col, size_t r,
+void kernel(float *result, float *temp, float *power, size_t c_start, size_t size, size_t col, size_t r_start,
 					  float Cap_1, float Rx_1, float Ry_1, float Rz_1, float amb_temp)
 {
+size_t r;
+for ( r = r_start; r < row - r_start ; ++r ) {
 #if defined(NEON)
 
 	#define NEON_STRIDE 4
@@ -378,7 +380,7 @@ void kernel(float *result, float *temp, float *power, size_t c_start, size_t siz
 		 [pow] "r" (power), [r] "r" (r), [col] "r" (col), [sz] "r" (c_start+size)
 		 : "x1", "x2", "x3", "x4", "x5", "x6", "x7", "x9", "memory", "p0", "z0", "z1", "z2", "z3", "z4", "z5", "z6", "z7", "z8", "z9"
 	);	
-	
+}
 #endif
 }
 
