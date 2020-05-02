@@ -188,9 +188,7 @@ void single_iteration(float *result, float *temp, float *power, int row, int col
         }
 	    
 	    double start_time_loop = get_time();
-	    for ( r = BLOCK_SIZE_R; r < row - BLOCK_SIZE_R ; ++r ) {
-	    	kernel(result, temp, power, (size_t)BLOCK_SIZE_C, (size_t)(col-BLOCK_SIZE_C), (size_t)col, (size_t)r, Cap_1, Rx_1, Ry_1, Rz_1, amb_temp);
-	    }
+	    kernel_loop(result, temp, power, (size_t)BLOCK_SIZE_C, (size_t)(col-BLOCK_SIZE_C), (size_t)col, (size_t)BLOCK_SIZE_R, Cap_1, Rx_1, Ry_1, Rz_1, amb_temp, (size_t)row);
 	    double end_time_loop = get_time();
         total_time_loop +=(end_time_loop - start_time_loop);
 	    
