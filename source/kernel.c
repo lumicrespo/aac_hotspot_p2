@@ -380,8 +380,9 @@ for ( r = r_start; r < row - r_start ; ++r ) {
 		 [pow] "r" (power), [r] "r" (r), [col] "r" (col), [sz] "r" (c_start+size)
 		 : "x1", "x2", "x3", "x4", "x5", "x6", "x7", "x9", "memory", "p0", "z0", "z1", "z2", "z3", "z4", "z5", "z6", "z7", "z8", "z9"
 	);	
-}
+
 #endif
+}
 }
 
 void kernel_ifs(float *result, float *temp, float *power, size_t c_start, size_t size, size_t col, size_t r, size_t row,
