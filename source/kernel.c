@@ -3,6 +3,11 @@
 #include <cstdio>
 #include <stdlib.h>
 
+
+#define BLOCK_SIZE 16
+#define BLOCK_SIZE_C BLOCK_SIZE
+#define BLOCK_SIZE_R BLOCK_SIZE
+
 void kernel_loop(float *result, float *temp, float *power, size_t c_start, size_t size, size_t col, size_t r_start,
 					  float Cap_1, float Rx_1, float Ry_1, float Rz_1, float amb_temp,size_t row)
 {
@@ -98,11 +103,32 @@ void kernel_loop(float *result, float *temp, float *power, size_t c_start, size_
 	}
 }
 
-void kernel_ifs(float *result, float *temp, float *power, size_t c_start, size_t size, size_t col, size_t r, size_t row,
-					  float Cap_1, float Rx_1, float Ry_1, float Rz_1, float amb_temp, float *delta)
+void kernel_ifs(float *result, float *temp, float *power, size_t c_start, size_t size, size_t col, size_t r, size_t row, float Cap_1, float Rx_1, 
+				float Ry_1, float Rz_1, float amb_temp, float *delta, int num_chunk, int chunks_in_row, int chunks_in_col)
 {
 	
-
+	for ( int chunk = 0; chunk < num_chunk; ++chunk )
+	{
+		int r_start = BLOCK_SIZE_R*(chunk/chunks_in_col);
+		int c_start = BLOCK_SIZE_C*(chunk%chunks_in_row); 
+		int r_end = r_start + BLOCK_SIZE_R > row ? row : r_start + BLOCK_SIZE_R;
+		int c_end = c_start + BLOCK_SIZE_C > col ? col : c_start + BLOCK_SIZE_C;
+	   
+	   
+		if ( r_start == 0 || c_start == 0 || r_end == row || c_end == col )
+		{	
+			double start_time_ifs = get_time();
+			
+			for ( r = r_start; r < r_start + BLOCK_SIZE_R; ++r ) 
+			{
+				kernel_ifs(result, temp, power, (size_t)c_start, (size_t)BLOCK_SIZE_C, (size_t)col, (size_t)r,(size_t) row, Cap_1, Rx_1, Ry_1, Rz_1, amb_temp, delta);
+			}
+			
+			double end_time_ifs = get_time();
+			total_time_ifs += (end_time_ifs - start_time_ifs);
+			continue;
+		}
+	}
     //NEON
 	asm volatile (
 		 //if (r==0)

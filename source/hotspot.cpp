@@ -68,37 +68,20 @@ void single_iteration(float *result, float *temp, float *power, int row, int col
     int chunks_in_col = row/BLOCK_SIZE_R;
 	float *delta = (float *) calloc (1, sizeof(float));
     
-	//M5resetstats();
-	for ( chunk = 0; chunk < num_chunk; ++chunk )
-	{
-		int r_start = BLOCK_SIZE_R*(chunk/chunks_in_col);
-		int c_start = BLOCK_SIZE_C*(chunk%chunks_in_row); 
-		int r_end = r_start + BLOCK_SIZE_R > row ? row : r_start + BLOCK_SIZE_R;
-		int c_end = c_start + BLOCK_SIZE_C > col ? col : c_start + BLOCK_SIZE_C;
-	   
-	   
-		if ( r_start == 0 || c_start == 0 || r_end == row || c_end == col )
-		{	
-			double start_time_ifs = get_time();
+	double start_time_ifs = get_time();
+	M5resetstats();
+	
+	kernel_ifs(result, temp, power, (size_t)c_start, (size_t)BLOCK_SIZE_C, (size_t)col, (size_t)r,(size_t) row, Cap_1, Rx_1, Ry_1, Rz_1, amb_temp, delta, num_chunk, chunks_in_row, chunks_in_col);
 			
-			for ( r = r_start; r < r_start + BLOCK_SIZE_R; ++r ) 
-			{
-				kernel_ifs(result, temp, power, (size_t)c_start, (size_t)BLOCK_SIZE_C, (size_t)col, (size_t)r,(size_t) row, Cap_1, Rx_1, Ry_1, Rz_1, amb_temp, delta);
-			}
-			
-			double end_time_ifs = get_time();
-			total_time_ifs += (end_time_ifs - start_time_ifs);
-			continue;
-		}
-	}
-	//M5resetdumpstats();
+	M5resetdumpstats();
+	double end_time_ifs = get_time();
 	
 	double start_time_loop = get_time();
-	M5resetstats();
+	//M5resetstats();
    
 	kernel_loop(result, temp, power, (size_t)BLOCK_SIZE_C, (size_t)(col-BLOCK_SIZE_C), (size_t)col, (size_t)BLOCK_SIZE_R, Cap_1, Rx_1, Ry_1, Rz_1, amb_temp, (size_t)row);
 	
-	M5resetdumpstats();
+	//M5resetdumpstats();
 
 	double end_time_loop = get_time();
 	total_time_loop +=(end_time_loop - start_time_loop);
