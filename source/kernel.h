@@ -4,7 +4,7 @@
 #include <stddef.h>
 
 
-void kernel_loop(float *result, float *temp, float *power, size_t size, size_t col, size_t r,
+void kernel_loop(float *result, float *temp, float *power, size_t size, size_t col,
 	   	  float Cap_1, float Rx_1, float Ry_1, float Rz_1, float amb_temp, size_t row);
 
 	   	  

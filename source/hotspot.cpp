@@ -86,7 +86,7 @@ void single_iteration(float *result, float *temp, float *power, int row, int col
 	double end_time_loop = get_time();
 	total_time_loop +=(end_time_loop - start_time_loop);
 	
-	double start_time_ifs = get_time();
+	start_time_ifs = get_time();
 	result[0] = temp[0]+ (Cap_1) * (power[0] +
 				(temp[1] - temp[0]) * Rx_1 +
 				(temp[col] - temp[0]) * Ry_1 +
@@ -102,7 +102,7 @@ void single_iteration(float *result, float *temp, float *power, int row, int col
 						(temp[(row-1)*col+1] - temp[(row-1)*col]) * Rx_1 +
 						(temp[(row-2)*col] - temp[(row-1)*col]) * Ry_1 +
 						(amb_temp - temp[(row-1)*col]) * Rz_1);
-	double end_time_ifs = get_time();
+	end_time_ifs = get_time();
 	total_time_ifs += (end_time_ifs - start_time_ifs);
 						
 	double end_time_single_iteration= get_time();
