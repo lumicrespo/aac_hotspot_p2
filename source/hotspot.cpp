@@ -71,7 +71,7 @@ void single_iteration(float *result, float *temp, float *power, int row, int col
 	double start_time_ifs = get_time();
 	M5resetstats();
 	
-	kernel_ifs(result, temp, power, (size_t)c_start, (size_t)BLOCK_SIZE_C, (size_t)col, (size_t)r,(size_t) row, Cap_1, Rx_1, Ry_1, Rz_1, amb_temp, delta, num_chunk, chunks_in_row, chunks_in_col);
+	kernel_ifs(result, temp, power, (size_t)BLOCK_SIZE_C, (size_t)col,(size_t) row, Cap_1, Rx_1, Ry_1, Rz_1, amb_temp, delta, num_chunk, chunks_in_row, chunks_in_col);
 			
 	M5resetdumpstats();
 	double end_time_ifs = get_time();
