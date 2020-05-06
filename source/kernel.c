@@ -7,7 +7,7 @@ void kernel_loop(float *result, float *temp, float *power, size_t c_start, size_
 					  float Cap_1, float Rx_1, float Ry_1, float Rz_1, float amb_temp,size_t row)
 {
 	size_t r;
-	
+	#define NEON_STRIDE 4
 	int unroll =1;
 	
 	for ( r = r_start; r < row - r_start ; ++r ) {
