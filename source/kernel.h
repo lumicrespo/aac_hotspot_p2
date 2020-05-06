@@ -8,8 +8,8 @@ void kernel_loop(float *result, float *temp, float *power, size_t size, size_t c
 	   	  float Cap_1, float Rx_1, float Ry_1, float Rz_1, float amb_temp, size_t row);
 
 	   	  
-void kernel_ifs(float *result, float *temp, float *power, size_t c_start, size_t size, size_t col, size_t row,
-	   	  float Cap_1, float Rx_1, float Ry_1, float Rz_1, float amb_temp, float *delta, int num_chunk, int chunks_in_row, int chunks_in_col);
+void kernel_ifs(float *result, float *temp, float *power, size_t size, size_t col, size_t row,
+	   	  float Cap_1, float Rx_1, float Ry_1, float Rz_1, float amb_temp, int num_chunk, int chunks_in_row, int chunks_in_col);
 /*
 void kernel_original(float *result, float *temp, float *power, size_t c_start, size_t size, size_t col, size_t r,
 					  float Cap_1, float Rx_1, float Ry_1, float Rz_1, float amb_temp);

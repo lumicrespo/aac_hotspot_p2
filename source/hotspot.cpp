@@ -66,13 +66,13 @@ void single_iteration(float *result, float *temp, float *power, int row, int col
     int num_chunk = row*col / (BLOCK_SIZE_R * BLOCK_SIZE_C);
     int chunks_in_row = col/BLOCK_SIZE_C;
     int chunks_in_col = row/BLOCK_SIZE_R;
-	float *delta = (float *) calloc (1, sizeof(float));
+
     
 	double start_time_ifs = get_time();
 	M5resetstats();
 	
-	kernel_ifs(result, temp, power, (size_t)BLOCK_SIZE_C, (size_t)col,(size_t) row, Cap_1, Rx_1, Ry_1, Rz_1, amb_temp, delta, num_chunk, chunks_in_row, chunks_in_col);
-			
+	kernel_ifs(result, temp, power, (size_t)BLOCK_SIZE_C, (size_t)col,(size_t) row, Cap_1, Rx_1, Ry_1, Rz_1, amb_temp, num_chunk, chunks_in_row, chunks_in_col);
+	
 	M5resetdumpstats();
 	double end_time_ifs = get_time();
 	

@@ -103,9 +103,10 @@ void kernel_loop(float *result, float *temp, float *power, size_t c_start, size_
 	}
 }
 
-void kernel_ifs(float *result, float *temp, float *power, size_t c_start, size_t size, size_t col, size_t row, float Cap_1, float Rx_1, 
-				float Ry_1, float Rz_1, float amb_temp, float *delta, int num_chunk, int chunks_in_row, int chunks_in_col)
+void kernel_ifs(float *result, float *temp, float *power, size_t size, size_t col, size_t row, float Cap_1, float Rx_1, 
+				float Ry_1, float Rz_1, float amb_temp, int num_chunk, int chunks_in_row, int chunks_in_col)
 {
+	float *delta = (float *) calloc (1, sizeof(float));
 	
 	for ( int chunk = 0; chunk < num_chunk; ++chunk )
 	{
