@@ -69,19 +69,19 @@ void single_iteration(float *result, float *temp, float *power, int row, int col
 
     
 	double start_time_ifs = get_time();
-	M5resetstats();
+	//M5resetstats();
 	
 	kernel_ifs(result, temp, power, (size_t)BLOCK_SIZE_C, (size_t)col,(size_t) row, Cap_1, Rx_1, Ry_1, Rz_1, amb_temp, num_chunk, chunks_in_row, chunks_in_col);
 	
-	M5resetdumpstats();
+	//M5resetdumpstats();
 	double end_time_ifs = get_time();
 	
 	double start_time_loop = get_time();
-	//M5resetstats();
+	M5resetstats();
    
 	kernel_loop(result, temp, power, (size_t)BLOCK_SIZE_C, (size_t)(col-BLOCK_SIZE_C), (size_t)col, (size_t)BLOCK_SIZE_R, Cap_1, Rx_1, Ry_1, Rz_1, amb_temp, (size_t)row);
 	
-	//M5resetdumpstats();
+	M5resetdumpstats();
 
 	double end_time_loop = get_time();
 	total_time_loop +=(end_time_loop - start_time_loop);

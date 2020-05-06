@@ -18,7 +18,7 @@ void kernel_loop(float *result, float *temp, float *power, size_t c_start, size_
 	for ( r = r_start; r < row - r_start ; ++r ) {
 
 		size_t iter = 0, rem = 0;
-	
+		
 		if(size < NEON_STRIDE*unroll)
 		{
 			for ( int c = c_start; c < c_start + size; ++c ) 
