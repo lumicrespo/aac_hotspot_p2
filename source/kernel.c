@@ -18,12 +18,11 @@ void kernel_loop(float *result, float *temp, float *power, size_t c_start, size_
 	for ( r = r_start; r < row - r_start ; ++r ) {
 
 		size_t iter = 0, rem = 0;
-		
+		/*
 		if(size < NEON_STRIDE*unroll)
 		{
 			for ( int c = c_start; c < c_start + size; ++c ) 
 			{
-				/* Update Temperatures */
 				result[r*col+c] =temp[r*col+c]+ ( Cap_1 * (power[r*col+c] + 
 					(temp[(r+1)*col+c] + temp[(r-1)*col+c] - 2.f*temp[r*col+c]) * Ry_1 + 
 					(temp[r*col+c+1] + temp[r*col+c-1] - 2.f*temp[r*col+c]) * Rx_1 + 
@@ -32,6 +31,7 @@ void kernel_loop(float *result, float *temp, float *power, size_t c_start, size_
 			
 			 return;
 		}
+		*/
 		iter = (size+c_start) / (NEON_STRIDE*unroll) * (NEON_STRIDE*unroll);
 
 	
@@ -91,7 +91,7 @@ void kernel_loop(float *result, float *temp, float *power, size_t c_start, size_
 		
 		
 		rem = (size+c_start) % (NEON_STRIDE*unroll);
-		
+		/*
 		for ( int c = iter; c < rem + iter; ++c ) 
 		{
 			result[r*col+c] =temp[r*col+c]+ ( Cap_1 * (power[r*col+c] + 
@@ -100,6 +100,7 @@ void kernel_loop(float *result, float *temp, float *power, size_t c_start, size_
 				(amb_temp - temp[r*col+c]) * Rz_1));
 				
 		}
+		*/
 	}
 }
 
