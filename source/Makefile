@@ -1,6 +1,3 @@
-HOST_CC = g++
-HOST_CC_FLAGS = -g -O2
-
 GEM5_CC = aarch64-linux-g++
 GEM5_CC_FLAGS = -g -O2 -static
 
@@ -16,10 +13,8 @@ RM=rm -f
 KERNEL = kernel
 
 OBJDIR = build
-SOBJ_host = hotspot_host.o
 SOBJ_gem5 = hotspot_gem5.o
 
-OBJ_host := $(patsubst %.o,$(OBJDIR)/%.o,$(SOBJ_host))
 OBJ_gem5 := $(patsubst %.o,$(OBJDIR)/%.o,$(SOBJ_gem5))
 
 
@@ -40,8 +35,8 @@ run_neon: hotspot_neon
 	
 
 hotspot_neon: $(OBJ_gem5) $(KERNEL).c
-	$(GEM5_CC) $(GEM5_CC_FLAGS) -march=armv8-a+simd -fno-tree-vectorize -o $(OBJDIR)/$(KERNEL)_$@.o -c $(KERNEL).c
-	$(link_objs_gem5_0)
+	$(GEM5_CC) $(GEM5_CC_FLAGS_0) -march=armv8-a+simd -fno-tree-vectorize -o $(OBJDIR)/$(KERNEL)_$@.o -c $(KERNEL).c
+	$(link_objs_gem5)
 	
 
 
