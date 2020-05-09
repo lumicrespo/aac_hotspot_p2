@@ -31,7 +31,7 @@ run_neon: hotspot_neon
 	@echo "NEON done by us"
 	@echo "problem size () with 1 iterations... "
 	@echo "======================================================================"
-	$(GEM5_DIR)/build/ARM/gem5.opt $(GEM5_DIR)/configs/example/se.py --cpu-type=ex5_LITTLE --caches --bp-type=LocalBP --param='system.cpu[0].branchPred.BTBEntries=1' --param='system.cpu[0].branchPred.localCtrBits=1' --svevl=1 -c hotspot_neon -o '64 64 1 1 $(DATA_DIR)/temp_64 $(DATA_DIR)/power_64 output_neon.out'
+	$(GEM5_DIR)/build/ARM/gem5.opt $(GEM5_DIR)/configs/example/se.py --cpu-type=ex5_LITTLE --caches --bp-type=LocalBP --param='system.cpu[0].branchPred.BTBEntries=1' --param='system.cpu[0].branchPred.localCtrBits=1' --svevl=1 -c hotspot_neon -o '64 64 2 1 $(DATA_DIR)/temp_64 $(DATA_DIR)/power_64 output_neon.out'
 	
 
 hotspot_neon: $(OBJ_gem5) $(KERNEL).c
