@@ -77,11 +77,11 @@ void single_iteration(float *result, float *temp, float *power, int row, int col
 	double end_time_ifs = get_time();
 	
 	double start_time_loop = get_time();
-	M5resetstats();
+	//M5resetstats();
    
 	kernel_loop(result, temp, power, (size_t)BLOCK_SIZE_C, (size_t)(col-BLOCK_SIZE_C), (size_t)col, (size_t)BLOCK_SIZE_R, Cap_1, Rx_1, Ry_1, Rz_1, amb_temp, (size_t)row);
 	
-	M5resetdumpstats();
+	//M5resetdumpstats();
 
 	double end_time_loop = get_time();
 	total_time_loop +=(end_time_loop - start_time_loop);
@@ -150,9 +150,9 @@ void compute_tran_temp(float *result, int num_iterations, float *temp, float *po
                 #ifdef VERBOSE
                 fprintf(stdout, "iteration %d\n", i++);
                 #endif
-				//M5resetstats();
+				M5resetstats();
                 single_iteration(r, t, power, row, col, Cap_1, Rx_1, Ry_1, Rz_1, step);
-				//M5resetdumpstats();
+				M5resetdumpstats();
                 float* tmp = t;
                 t = r;
                 r = tmp;
